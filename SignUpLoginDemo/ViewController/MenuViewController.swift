@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class MenuViewController: UITableViewController {
 
+    var menuItems = ["Home","Logout"]
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView()
@@ -24,13 +26,31 @@ class MenuViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return menuItems.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MenuCell
-        cell.textLabel?.text = "menu item"
+        cell.textLabel?.text = menuItems[indexPath.row]
         return cell
     }
     
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if menuItems[indexPath.row] == "Logout" {
+            do {
+               NetworkManager.shared.signout()
+                NetworkManager.shared.googleSignOut()
+                LoginManager.init().logOut()
+                transitionToLogin()
+                } catch {
+                      showAlert(title: "Error", message: "error in signing out")
+                    return
+                }
+        }
+    }
+    func transitionToLogin() {
+        let loginViewController = storyboard?.instantiateViewController(withIdentifier: "SigninVC")
+        
+        view.window?.rootViewController = loginViewController
+        view.window?.makeKeyAndVisible()
+    }
 }

@@ -20,6 +20,8 @@
 		BDBC560C2726F59600909DE0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBC560B2726F59600909DE0 /* MenuViewController.swift */; };
 		BDBC560E2726F5D500909DE0 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBC560D2726F5D500909DE0 /* MenuCell.swift */; };
 		BDBC56102727119C00909DE0 /* Protcols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBC560F2727119C00909DE0 /* Protcols.swift */; };
+		BDBC56122727D97200909DE0 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBC56112727D97200909DE0 /* AddNoteViewController.swift */; };
+		BDBC561427286F1800909DE0 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBC561327286F1800909DE0 /* NoteCell.swift */; };
 		BDC01C8F27202111002CFA10 /* viewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC01C8E27202111002CFA10 /* viewControllerExtension.swift */; };
 		BDC01C91272054C1002CFA10 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC01C90272054C1002CFA10 /* NetworkManager.swift */; };
 		BDC01CB527206FF3002CFA10 /* SignUpLoginDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC01CB427206FF3002CFA10 /* SignUpLoginDemoTests.swift */; };
@@ -27,6 +29,8 @@
 		BDC01CBE2720843A002CFA10 /* EmailValidationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC01CBD2720843A002CFA10 /* EmailValidationTest.swift */; };
 		BDC361D1271EB51500573B40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDC361D0271EB51500573B40 /* GoogleService-Info.plist */; };
 		BDC361D3271EDC7600573B40 /* utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC361D2271EDC7600573B40 /* utilities.swift */; };
+		BDDDD166272A66C200F7923E /* NoteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDDD165272A66C200F7923E /* NoteItem.swift */; };
+		BDDDD188272ADE5000F7923E /* UpdateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDDD187272ADE5000F7923E /* UpdateNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,8 @@
 		BDBC560B2726F59600909DE0 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		BDBC560D2726F5D500909DE0 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		BDBC560F2727119C00909DE0 /* Protcols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protcols.swift; sourceTree = "<group>"; };
+		BDBC56112727D97200909DE0 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		BDBC561327286F1800909DE0 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		BDC01C8E27202111002CFA10 /* viewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewControllerExtension.swift; sourceTree = "<group>"; };
 		BDC01C90272054C1002CFA10 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BDC01CB227206FF3002CFA10 /* SignUpLoginDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignUpLoginDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +69,8 @@
 		BDC01CBD2720843A002CFA10 /* EmailValidationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationTest.swift; sourceTree = "<group>"; };
 		BDC361D0271EB51500573B40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BDC361D2271EDC7600573B40 /* utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilities.swift; sourceTree = "<group>"; };
+		BDDDD165272A66C200F7923E /* NoteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteItem.swift; sourceTree = "<group>"; };
+		BDDDD187272ADE5000F7923E /* UpdateNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNoteViewController.swift; sourceTree = "<group>"; };
 		E0AEB588AA89DE5A278F64BB /* Pods-SignUpLoginDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignUpLoginDemo.debug.xcconfig"; path = "Target Support Files/Pods-SignUpLoginDemo/Pods-SignUpLoginDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		F5E025BF3AC436CD7F98B89C /* Pods-SignUpLoginDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignUpLoginDemo.release.xcconfig"; path = "Target Support Files/Pods-SignUpLoginDemo/Pods-SignUpLoginDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +133,7 @@
 		BD6DEA3F271DDF7600F395EF /* SignUpLoginDemo */ = {
 			isa = PBXGroup;
 			children = (
+				BDDDD189272AF20600F7923E /* Model */,
 				BDBC56082726F50D00909DE0 /* Cell */,
 				BD6DEA5A271DE10300F395EF /* ViewController */,
 				BDC01CB327206FF3002CFA10 /* SignUpLoginDemoTests */,
@@ -149,6 +158,8 @@
 				BD6DEA58271DE0EF00F395EF /* HomeViewController.swift */,
 				BDBC56092726F55800909DE0 /* ContainerViewController.swift */,
 				BDBC560B2726F59600909DE0 /* MenuViewController.swift */,
+				BDBC56112727D97200909DE0 /* AddNoteViewController.swift */,
+				BDDDD187272ADE5000F7923E /* UpdateNoteViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -157,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				BDBC560D2726F5D500909DE0 /* MenuCell.swift */,
+				BDBC561327286F1800909DE0 /* NoteCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -179,6 +191,14 @@
 				BDC01CBD2720843A002CFA10 /* EmailValidationTest.swift */,
 			);
 			path = SignUpLoginDemoTests;
+			sourceTree = "<group>";
+		};
+		BDDDD189272AF20600F7923E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BDDDD165272A66C200F7923E /* NoteItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,14 +348,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDC01C91272054C1002CFA10 /* NetworkManager.swift in Sources */,
+				BDDDD188272ADE5000F7923E /* UpdateNoteViewController.swift in Sources */,
 				BDBC560C2726F59600909DE0 /* MenuViewController.swift in Sources */,
 				BD6DEA45271DDF7600F395EF /* ViewController.swift in Sources */,
 				BDBC56102727119C00909DE0 /* Protcols.swift in Sources */,
 				BD6DEA41271DDF7600F395EF /* AppDelegate.swift in Sources */,
+				BDBC561427286F1800909DE0 /* NoteCell.swift in Sources */,
 				BDC361D3271EDC7600573B40 /* utilities.swift in Sources */,
 				BDBC560E2726F5D500909DE0 /* MenuCell.swift in Sources */,
 				BD6DEA55271DE0CA00F395EF /* Signup1ViewController.swift in Sources */,
+				BDDDD166272A66C200F7923E /* NoteItem.swift in Sources */,
 				BDC01C8F27202111002CFA10 /* viewControllerExtension.swift in Sources */,
+				BDBC56122727D97200909DE0 /* AddNoteViewController.swift in Sources */,
 				BD6DEA43271DDF7600F395EF /* SceneDelegate.swift in Sources */,
 				BDBC560A2726F55800909DE0 /* ContainerViewController.swift in Sources */,
 				BD6DEA59271DE0EF00F395EF /* HomeViewController.swift in Sources */,
