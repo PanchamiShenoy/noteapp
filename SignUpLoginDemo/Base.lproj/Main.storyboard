@@ -248,14 +248,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoW-Ij-0Gk">
-                                                    <rect key="frame" x="74.5" y="8" width="41.5" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="73" y="8" width="44.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IE9-AE-aR8">
-                                                    <rect key="frame" x="145" y="0.0" width="44" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IE9-AE-aR8">
+                                                    <rect key="frame" x="146" y="0.0" width="44" height="31"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="filled" image="x.circle.fill" catalog="system">
                                                         <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -264,6 +263,9 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="IE9-AE-aR8" firstAttribute="top" secondItem="9ns-63-O9E" secondAttribute="top" id="BG0-sx-Z4z"/>
+                                                <constraint firstAttribute="trailing" secondItem="IE9-AE-aR8" secondAttribute="trailing" id="KZV-mv-216"/>
+                                                <constraint firstAttribute="trailing" secondItem="IE9-AE-aR8" secondAttribute="trailing" id="VVo-UZ-MF1"/>
                                                 <constraint firstItem="RAc-FO-IU2" firstAttribute="centerY" secondItem="9ns-63-O9E" secondAttribute="centerY" id="Y6X-ZA-kBu"/>
                                                 <constraint firstItem="WoW-Ij-0Gk" firstAttribute="top" secondItem="9ns-63-O9E" secondAttribute="top" constant="8" id="ekN-vt-8G7"/>
                                                 <constraint firstItem="RAc-FO-IU2" firstAttribute="centerX" secondItem="9ns-63-O9E" secondAttribute="centerX" id="fdv-JQ-8SZ"/>
@@ -364,7 +366,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wH1-Ge-jup">
-                                <rect key="frame" x="117" y="-1226.5" width="180" height="3349"/>
+                                <rect key="frame" x="117" y="-3336" width="180" height="7568"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIr-Rj-Ths">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="38.5"/>
@@ -372,7 +374,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LcR-G5-c1M">
-                                        <rect key="frame" x="0.0" y="58.5" width="180" height="3230.5"/>
+                                        <rect key="frame" x="0.0" y="58.5" width="180" height="7449.5"/>
                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="130" id="eIE-di-Qyv"/>
@@ -382,7 +384,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwL-D9-Sdd">
-                                        <rect key="frame" x="0.0" y="3309" width="180" height="40"/>
+                                        <rect key="frame" x="0.0" y="7528" width="180" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="aGE-jO-Rlb"/>
                                         </constraints>

@@ -12,6 +12,7 @@ class UpdateNoteViewController: UIViewController {
     @IBOutlet weak var noteTextField: UITextView!
     @IBOutlet weak var titleTextField: UITextField!
     var note: NoteItem?
+    var noteRealm :NotesItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class UpdateNoteViewController: UIViewController {
         note?.title = titleTextField.text!
         note?.note = noteTextField.text!
         NetworkManager.shared.updateNote(note!)
+        //RealmManager.shared.updateNote(note?.title,note?.note)
         noteTextField.text = ""
         titleTextField.text = ""
     }

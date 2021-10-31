@@ -10,13 +10,15 @@ import FirebaseAuth
 import GoogleSignIn
 import FBSDKLoginKit
 import FirebaseFirestore
+import RealmSwift
 class HomeViewController: UIViewController {
     var delegate :MenuDelegate?
-   
-    
-    // var arr2 : [String] = []
-    //var arr1 : [String] = []
+    let realmInstance = try! Realm()
     var notes: [NoteItem] = []
+    var notesRealm : [NotesItem] = []
+    var flag = true
+    var toggleButton = UIBarButtonItem()
+    var width: CGFloat?
     @IBOutlet weak var NoteCollectionView: UICollectionView!
     @IBOutlet weak var label: UILabel!
     let x = Auth.auth().currentUser?.uid
@@ -36,23 +38,26 @@ class HomeViewController: UIViewController {
        
         configureNavigation()
      configureCollectionView()
+       
     }
     override func viewDidAppear(_ animated: Bool) {
+        
+        fetchNoteRealm()
         fetchNote()
-        configureCollectionView()
+        NoteCollectionView.reloadData()
+        //configureCollectionView()
     }
     
     func configureCollectionView() {
-        //let itemSize = UIScreen.main.bounds.width/2 - 12
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        //layout.itemSize = CGSize(width: itemSize, height: itemSize)
-        layout.minimumLineSpacing = 4
-        layout.minimumInteritemSpacing = 4
+        width = (view.frame.width - 20)
+     //  let itemSize = UIScreen.main.bounds.width/2 - 12
+       let layout = UICollectionViewFlowLayout()
+      //layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+       //layout.itemSize = CGSize(width: width, height: itemSize)
+        //layout.minimumLineSpacing = 4
+        //layout.minimumInteritemSpacing = 4
                 
         NoteCollectionView.collectionViewLayout = layout
-        NoteCollectionView.backgroundColor = .clear
-
         NoteCollectionView.delegate = self
         NoteCollectionView.dataSource = self
     }
@@ -79,11 +84,27 @@ class HomeViewController: UIViewController {
     
     func configureNavigation() {
         self.navigationItem.title = "Main Controller"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(systemName: "list.dash"), style: .plain, target: self, action: #selector(handleMenu))
-        
+       let addButton = UIBarButtonItem(image:UIImage(systemName: "list.dash"), style: .plain, target: self, action: #selector(handleMenu))
+       let toggleButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.split.2x2.fill"), style: .done, target: self, action: #selector(toggleButtonTapped))
+                
+                navigationItem.rightBarButtonItems = [addButton, toggleButton]
         navigationItem.rightBarButtonItem = UIBarButtonItem(image :UIImage(systemName: "square.and.pencil") ,style:.plain,target:self,action:#selector(addNote))
     }
     
+    @objc func toggleButtonTapped(){
+        if flag {
+                   flag = !flag
+                   width = (view.frame.width - 20)
+                   toggleButton.image = UIImage(systemName: "rectangle.split.2x2.fill")
+               }else {
+                   
+                   flag = !flag
+                   width = (view.frame.width - 20) / 2
+                   toggleButton.image = UIImage(systemName: "rectangle.split.2x1.fill")
+                   
+               }
+               NoteCollectionView.reloadData()
+    }
     @objc func handleMenu() {
       
         delegate?.menuHandler()
@@ -105,9 +126,21 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
+    func fetchNoteRealm(){
+        RealmManager.shared.fetchNotes{ notesArray in
+            self.notesRealm = notesArray
+        }
+        //print(notesRealm)
+    }
+    
     @objc func onDeleteNote(_ sender: UIButton) {
         let deleteNoteId = notes[sender.tag].noteId
-           NetworkManager.shared.deleteNote(deleteNoteId)
+        NetworkManager.shared.deleteNote(deleteNoteId)
+        RealmManager.shared.deleteNote(index: sender.tag)
+      /* try! realmInstance.write({
+            realmInstance.delete(notesRealm[sender.tag])
+        })*/
            notes.remove(at: sender.tag)
            NoteCollectionView.reloadData()
        }
@@ -123,8 +156,7 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "noteCell", for: indexPath) as! NoteCell
-        //cell.backgroundColor =  UIColor.yellow 
-        //cell.textLabel = "note"
+      
         cell.cellTitle.text = notes[indexPath.row].title
         cell.cellContent.text = notes[indexPath.row].note
         cell.cellContent.numberOfLines = 5
@@ -137,8 +169,23 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
            let UpdateNoteViewController = storyboard!.instantiateViewController(withIdentifier: "UpdateNoteViewController") as! UpdateNoteViewController
         UpdateNoteViewController.note = notes[indexPath.row]
+        UpdateNoteViewController.noteRealm = notesRealm[indexPath.row]
         UpdateNoteViewController.modalPresentationStyle = .fullScreen
         present(UpdateNoteViewController, animated: true, completion: nil)
        }
 }
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: width!, height : 100 )
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 10.0, left: 1.0, bottom: 1.0, right: 1.0)
+    }
+    
+}
+
 
